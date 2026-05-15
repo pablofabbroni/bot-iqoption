@@ -17,7 +17,7 @@ GROUP_LINK = 'https://t.me/+W6a8NfSSR8w4YzJi'
 NTFY_TOPIC = 'senales-ptf-2026'
 
 IQ_EMAIL = 'pablofabbroni@gmail.com'
-IQ_PASSWORD = 'Cabrera1798'
+IQ_PASSWORD = 'Cabrera1798!'
 IQ_ACCOUNT_TYPE = 'PRACTICE'  # PRACTICE = demo | REAL = real
 
 MAX_MONTO = 10        # Tope máximo por operación en demo
