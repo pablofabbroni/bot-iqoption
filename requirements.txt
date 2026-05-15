@@ -1,5 +1,4 @@
 telethon
 requests
 pytz
-iqoptionapi
-python-dotenv
+git+https://github.com/iqoptionapi/iqoptionapi.git
