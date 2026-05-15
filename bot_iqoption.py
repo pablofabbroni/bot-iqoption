@@ -1,29 +1,34 @@
 import asyncio
 import re
 import logging
+import os
 from datetime import datetime, timedelta
 import pytz
 import requests
 from telethon import TelegramClient, events
 from iqoptionapi.stable_api import IQ_Option
+from dotenv import load_dotenv
+
+# Cargar variables de entorno
+load_dotenv()
 
 # ==============================
 # CONFIGURACION
 # ==============================
-API_ID = 33556386
-API_HASH = '1cb5333facf7aa801a7eea1eaf27ff29'
-PHONE = '+543584845466'
-GROUP_LINK = 'https://t.me/+W6a8NfSSR8w4YzJi'
-NTFY_TOPIC = 'senales-ptf-2026'
+API_ID = int(os.getenv('API_ID', '0'))
+API_HASH = os.getenv('API_HASH', '')
+PHONE = os.getenv('PHONE', '')
+GROUP_LINK = os.getenv('GROUP_LINK', 'https://t.me/+W6a8NfSSR8w4YzJi')
+NTFY_TOPIC = os.getenv('NTFY_TOPIC', 'senales-ptf-2026')
 
-IQ_EMAIL = 'pablofabbroni@gmail.com'
-IQ_PASSWORD = 'Cabrera1798'
-IQ_ACCOUNT_TYPE = 'PRACTICE'  # PRACTICE = demo | REAL = real
+IQ_EMAIL = os.getenv('IQ_EMAIL', '')
+IQ_PASSWORD = os.getenv('IQ_PASSWORD', '')
+IQ_ACCOUNT_TYPE = os.getenv('IQ_ACCOUNT_TYPE', 'PRACTICE')  # PRACTICE = demo | REAL = real
 
-MAX_MONTO = 10        # Tope máximo por operación en demo
-PORCENTAJE = 0.05     # 5% del balance
-MAX_MARTINGALE = 2    # Máximo 2 martingales
-SEGUNDOS_ANTES = 3    # Entrar 3 segundos antes
+MAX_MONTO = float(os.getenv('MAX_MONTO', '10'))        # Tope máximo por operación en demo
+PORCENTAJE = float(os.getenv('PORCENTAJE', '0.05'))     # 5% del balance
+MAX_MARTINGALE = int(os.getenv('MAX_MARTINGALE', '2'))    # Máximo 2 martingales
+SEGUNDOS_ANTES = int(os.getenv('SEGUNDOS_ANTES', '3'))    # Entrar 3 segundos antes
 
 ZONA_ARGENTINA = pytz.timezone('America/Argentina/Buenos_Aires')
 ZONA_UTC = pytz.timezone('UTC')
